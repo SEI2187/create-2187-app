@@ -1,0 +1,16 @@
+{
+  "name": "create-2187-app",
+  "version": "1.0.0",
+  "description": "CLI to create Next.js apps with TypeScript, Tailwind, and more",
+  "main": "index.js",
+  "bin": {
+    "create-2187-app": "./bin/cli.js"
+  },
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["nextjs", "react", "typescript", "tailwind", "cli"],
+  "author": "",
+  "license": "MIT"
+}
