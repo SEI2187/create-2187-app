@@ -3,18 +3,70 @@ import { execSync } from 'child_process';
 import fs from 'fs-extra';
 import path from 'path';
 
-export async function createProject({ projectName, typescript, tailwind }) {
+export async function createProject({ projectName, language, features }) {
   console.log(chalk.blue('Creating your project...'));
 
   const projectDir = path.resolve(process.cwd(), projectName);
 
-  // Create Next.js project
-  const createCommand = `npx create-next-app@latest ${projectName} ${typescript ? '--typescript' : '--js'} --tailwind --eslint --app --src-dir --import-alias "@/*"`;
+  // Create Next.js project with selected language
+  const createCommand = `npx create-next-app@latest ${projectName} ${
+    language === 'typescript' ? '--typescript' : '--js'
+  } ${features.includes('tailwind') ? '--tailwind' : ''} ${
+    features.includes('eslint') ? '--eslint' : ''
+  } --app --src-dir --import-alias "@/*"`;
   
   execSync(createCommand, { stdio: 'inherit' });
+
+  // Change to project directory
+  process.chdir(projectDir);
+
+  // Install additional dependencies based on selected features
+  const dependencies = [];
+  const devDependencies = [];
+
+  if (features.includes('prettier')) {
+    devDependencies.push('prettier', 'prettier-plugin-tailwindcss');
+  }
+
+  if (features.includes('shadcn')) {
+    execSync('npx shadcn-ui@latest init', { stdio: 'inherit' });
+  }
+
+  if (features.includes('react-query')) {
+    dependencies.push('@tanstack/react-query');
+  }
+
+  if (features.includes('zustand')) {
+    dependencies.push('zustand');
+  }
+
+  if (features.includes('react-hook-form')) {
+    dependencies.push('react-hook-form');
+  }
+
+  if (features.includes('prisma')) {
+    devDependencies.push('prisma');
+    dependencies.push('@prisma/client');
+    execSync('npx prisma init', { stdio: 'inherit' });
+  }
+
+  // Install dependencies
+  if (dependencies.length > 0) {
+    execSync(`npm install ${dependencies.join(' ')}`, { stdio: 'inherit' });
+  }
+
+  if (devDependencies.length > 0) {
+    execSync(`npm install -D ${devDependencies.join(' ')}`, { stdio: 'inherit' });
+  }
 
   console.log(chalk.green('\n✔ Project created successfully!'));
   console.log(chalk.yellow('\nNext steps:'));
   console.log(`  cd ${projectName}`);
   console.log('  npm run dev');
+
+  if (features.includes('prisma')) {
+    console.log(chalk.cyan('\nPrisma setup:'));
+    console.log('  1. Update your database URL in .env');
+    console.log('  2. Run npx prisma db push');
+  }
 }
