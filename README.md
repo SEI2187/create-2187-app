@@ -12,7 +12,6 @@ A modern CLI tool to create Next.js applications with a beautiful purple neon th
 
 ## Quick Start
 
-```bash
 npx create-2187-app my-app
 ```
 
