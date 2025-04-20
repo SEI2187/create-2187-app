@@ -10,14 +10,13 @@ A modern CLI tool to create Next.js applications with a beautiful purple neon th
 - 🎯 Interactive CLI with arrow key navigation
 - ✨ Multiple feature selection with checkboxes
 
-## Quick Start
-
-npx create-2187-app my-app
-```
-
-## Installation
+## Usage
 
 ```bash
+npx create-2187-app my-app
+```
+## Installation
+
 # create-2187-app
 
 A customizable starter template for modern web apps, featuring your favorite tools out of the box.
@@ -62,14 +61,12 @@ npm run dev
 my-app/
 ├── src/
 │   ├── app/
-│   │   └── page.tsx      # Purple neon homepage
+│   │   └── page.tsx
 │   └── ...
 ├── public/
 ├── package.json
 └── ...
 ```
-
-## ⚙️ Feature Configuration
 
 ### Prisma
 
