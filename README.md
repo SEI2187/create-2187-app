@@ -1,6 +1,6 @@
 # create-2187-app
 
-A modern CLI tool to create Next.js applications with a beautiful purple neon theme and optional features.
+A modern CLI tool to create Next.js applications.
 
 ## Features
 
