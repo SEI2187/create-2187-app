@@ -5,7 +5,6 @@ A modern CLI tool to create Next.js applications with a beautiful purple neon th
 ## Features
 
 - 🚀 Next.js 13+ with App Router
-- 🎨 Beautiful purple neon theme out of the box
 - 💜 TypeScript/JavaScript support
 - 🎯 Interactive CLI with arrow key navigation
 - ✨ Multiple feature selection with checkboxes
@@ -115,4 +114,4 @@ MIT
 
 ## 💬 Support
 
-If you have any questions or need help, please [open an issue](https://github.com/) on GitHub.
+If you have any questions or need help, please [open an issue](https://github.com/SEI2187/create-2187-app/issues) on GitHub.
