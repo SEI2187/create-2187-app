@@ -2,6 +2,10 @@ import chalk from 'chalk';
 import { execSync } from 'child_process';
 import fs from 'fs-extra';
 import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 export async function createProject({ projectName, language, features }) {
   console.log(chalk.blue('Creating your project...'));
@@ -68,5 +72,24 @@ export async function createProject({ projectName, language, features }) {
     console.log(chalk.cyan('\nPrisma setup:'));
     console.log('  1. Update your database URL in .env');
     console.log('  2. Run npx prisma db push');
+  }
+
+  // After project creation, copy our custom template
+  const templatePath = path.join(__dirname, '../templates/page.tsx');
+  const targetPath = path.join(projectDir, 'src/app/page.tsx');
+  
+  // Only copy if typescript is selected, otherwise convert to .js
+  if (language === 'typescript') {
+    await fs.copy(templatePath, targetPath);
+  } else {
+    const content = await fs.readFile(templatePath, 'utf8');
+    const jsContent = content
+      .replace(/\.tsx/g, '.js')
+      .replace(/: React\.FC/g, '')
+      .replace(/: string/g, '')
+      .replace(/: number/g, '')
+      .replace(/: boolean/g, '')
+      .replace(/: any/g, '');
+    await fs.writeFile(targetPath.replace('.tsx', '.js'), jsContent);
   }
 }
