@@ -14,7 +14,11 @@ A modern CLI tool to create Next.js applications with a beautiful purple neon th
 
 ```bash
 npx create-2187-app my-app
+```
 
+## Installation
+
+```bash
 # create-2187-app
 
 A customizable starter template for modern web apps, featuring your favorite tools out of the box.
