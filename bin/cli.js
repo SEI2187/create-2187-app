@@ -13,7 +13,7 @@ const __dirname = path.dirname(__filename);
 
 program
   .name('create-2187-app')
-  .description('Create a new Next.js project with optional features')
+  .description('Create a new project with your favorite framework')
   .argument('[project-directory]', 'Project directory name')
   .action(async (projectDirectory) => {
     try {
@@ -23,6 +23,19 @@ program
           name: 'projectName',
           message: 'What is your project named?',
           default: projectDirectory || 'my-2187-app',
+        },
+        {
+          type: 'list',
+          name: 'framework',
+          message: 'Select a framework:',
+          choices: [
+            { name: 'Next.js', value: 'nextjs' },
+            { name: 'React', value: 'react' },
+            { name: 'Vue', value: 'vue' },
+            { name: 'Angular', value: 'angular' },
+            { name: 'Svelte', value: 'svelte' },
+            { name: 'Remix', value: 'remix' }
+          ],
         },
         {
           type: 'list',
@@ -37,16 +50,48 @@ program
           type: 'checkbox',
           name: 'features',
           message: 'Select additional features:',
-          choices: [
-            { name: 'Tailwind CSS', value: 'tailwind', checked: true },
-            { name: 'ESLint', value: 'eslint', checked: true },
-            { name: 'Prettier', value: 'prettier' },
-            { name: 'shadcn/ui', value: 'shadcn' },
-            { name: 'React Query', value: 'react-query' },
-            { name: 'Zustand (State Management)', value: 'zustand' },
-            { name: 'React Hook Form', value: 'react-hook-form' },
-            { name: 'Prisma', value: 'prisma' }
-          ],
+          choices: ({ framework }) => {
+            const commonFeatures = [
+              { name: 'ESLint', value: 'eslint', checked: true },
+              { name: 'Prettier', value: 'prettier' },
+            ];
+
+            const nextFeatures = [
+              { name: 'Tailwind CSS', value: 'tailwind', checked: true },
+              { name: 'shadcn/ui', value: 'shadcn' },
+              { name: 'React Query', value: 'react-query' },
+              { name: 'Zustand (State Management)', value: 'zustand' },
+              { name: 'React Hook Form', value: 'react-hook-form' },
+              { name: 'Prisma', value: 'prisma' }
+            ];
+
+            switch (framework) {
+              case 'nextjs':
+                return [...commonFeatures, ...nextFeatures];
+              case 'react':
+                return [...commonFeatures, ...nextFeatures];
+              case 'vue':
+                return [...commonFeatures, 
+                  { name: 'Tailwind CSS', value: 'tailwind' },
+                  { name: 'Pinia (State Management)', value: 'pinia' },
+                  { name: 'Vue Query', value: 'vue-query' }
+                ];
+              case 'angular':
+                return [...commonFeatures,
+                  { name: 'Tailwind CSS', value: 'tailwind' },
+                  { name: 'NgRx', value: 'ngrx' }
+                ];
+              case 'svelte':
+                return [...commonFeatures,
+                  { name: 'Tailwind CSS', value: 'tailwind' },
+                  { name: 'SvelteKit', value: 'sveltekit' }
+                ];
+              case 'remix':
+                return [...commonFeatures, ...nextFeatures];
+              default:
+                return commonFeatures;
+            }
+          }
         }
       ]);
 

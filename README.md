@@ -1,117 +1,153 @@
 # create-2187-app
 
-A modern CLI tool to create Next.js applications.
+A modern CLI tool to create web applications with your favorite framework and tools.
 
-## Features
+---
 
-- 🚀 Next.js 13+ with App Router
-- 💜 TypeScript/JavaScript support
-- 🎯 Interactive CLI with arrow key navigation
-- ✨ Multiple feature selection with checkboxes
+## ✨ Features
 
-## Usage
+### 🎨 Framework Support
+- **Next.js 13+ (App Router)**
+- **React**
+- **Vue**
+- **Angular**
+- **Svelte**
+- **Remix**
 
-```bash
-npx create-2187-app my-app
-```
-## Installation
+### 💜 Language Support
+- TypeScript
+- JavaScript
 
-# create-2187-app
+### 🎯 Developer Experience
+- Interactive CLI with arrow key navigation
+- Multi-select features using checkboxes
 
-A customizable starter template for modern web apps, featuring your favorite tools out of the box.
+---
 
-## 🚀 Available Features
-
-You can select from the following features during project creation:
-
-- **Tailwind CSS** – Utility-first CSS framework  
-- **ESLint** – Code linting  
-- **Prettier** – Code formatting  
-- **shadcn/ui** – Re-usable components  
-- **React Query** – Data fetching and caching  
-- **Zustand** – State management  
-- **React Hook Form** – Form handling  
-- **Prisma** – Database ORM  
-
-## 📦 Usage Guide
-
-### 1. Create a new project
+## 🚀 Quick Start
 
 ```bash
 npx create-2187-app my-app
 ```
 
-### 2. Select features
+---
 
-- Use ↑ and ↓ arrow keys to navigate options  
-- Use `Spacebar` to check/uncheck features  
-- Press `Enter` to confirm your selection  
+## 📦 Available Features
 
-### 3. Start the app
+> Features vary by framework:
+
+### 🔵 Next.js / React / Remix
+- Tailwind CSS – Utility-first CSS framework  
+- ESLint – Code linting  
+- Prettier – Code formatting  
+- shadcn/ui – Reusable components  
+- React Query – Data fetching and caching  
+- Zustand – State management  
+- React Hook Form – Form handling  
+- Prisma – Database ORM  
+
+### 🟢 Vue
+- Tailwind CSS – Utility-first CSS framework  
+- ESLint – Code linting  
+- Prettier – Code formatting  
+- Pinia – State management  
+- Vue Query – Data fetching and caching  
+
+### 🔴 Angular
+- Tailwind CSS – Utility-first CSS framework  
+- ESLint – Code linting  
+- Prettier – Code formatting  
+- NgRx – State management  
+
+### 🟠 Svelte
+- Tailwind CSS – Utility-first CSS framework  
+- ESLint – Code linting  
+- Prettier – Code formatting  
+- SvelteKit – Application framework  
+
+---
+
+## 📝 Usage Guide
+
+### 1. Create a New Project
+
+```bash
+npx create-2187-app my-app
+```
+
+### 2. Select Options
+
+- Use ↑ and ↓ to choose your framework  
+- Select TypeScript or JavaScript  
+- Use **Spacebar** to toggle features  
+- Press **Enter** to confirm selections  
+
+### 3. Start Developing
 
 ```bash
 cd my-app
 npm run dev
 ```
 
-## 🧱 Project Structure
+---
+
+## 🧱 Project Structure (Example)
 
 ```plaintext
 my-app/
 ├── src/
-│   ├── app/
-│   │   └── page.tsx
+│   ├── app/             
+│   │   └── page.tsx      
 │   └── ...
 ├── public/
 ├── package.json
 └── ...
 ```
 
-### Prisma
+---
 
-If you selected **Prisma**:
+## ⚙️ Framework-Specific Setup
+> For detailed setup instructions, refer to the README of each framework:
 
-1. Update your database URL in `.env`  
-2. Run the following command:  
-   ```bash
-   npx prisma db push
-   ```
-
-### shadcn/ui
-
-If you selected **shadcn/ui**:
-
-1. Components will be available in `src/components/ui`  
-2. Use the CLI to add new components:  
-   ```bash
-   npx shadcn-ui add button
-   ```
+---
 
 ## 🤝 Contributing
 
 1. Fork the repository  
-2. Create your feature branch:  
-   ```bash
-   git checkout -b feature/amazing-feature
-   ```
-3. Commit your changes:  
-   ```bash
-   git commit -m 'Add amazing feature'
-   ```
-4. Push to the branch:  
-   ```bash
-   git push origin feature/amazing-feature
-   ```
+2. Create your feature branch:
+
+```bash
+git checkout -b feature/amazing-feature
+```
+
+3. Commit your changes:
+
+```bash
+git commit -m "Add amazing feature"
+```
+
+4. Push to the branch:
+
+```bash
+git push origin feature/amazing-feature
+```
+
 5. Open a Pull Request
+
+---
 
 ## 📄 License
 
 MIT
 
+---
+
 ## 👤 Author
 
 **SEI2187**
 
+---
+
 ## 💬 Support
 
-If you have any questions or need help, please [open an issue](https://github.com/SEI2187/create-2187-app/issues) on GitHub.
+If you have any questions or need help, please [open an issue on GitHub](https://github.com/SEI2187/create-2187-app/issues).
